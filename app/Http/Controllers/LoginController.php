@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
  
 class LoginController extends Controller
 {
+    public function index()
+    {
+        return view('login/form-login');
+    }
     /**
      * Handle an authentication attempt.
      */
