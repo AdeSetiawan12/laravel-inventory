@@ -11,16 +11,21 @@ class LoginController extends Controller
     {
         return view('login/form-login');
     }
+
     /**
      * Handle an authentication attempt.
      */
-    public function authenticate(Request $request): RedirectResponse
-    {
+    public function authenticate(Request $request)
+        {
+        // var_dump($request->email);
+        // var_dump($request->password);
+        // die;
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
- 
+       
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
@@ -28,7 +33,7 @@ class LoginController extends Controller
         }
  
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Email atau Password salah',
         ])->onlyInput('email');
     }
 }
