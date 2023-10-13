@@ -36,4 +36,13 @@ class LoginController extends Controller
             'email' => 'Email atau Password salah',
         ])->onlyInput('email');
     }
+
+    //copas dari laravel document #Logging Out
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }        
 }

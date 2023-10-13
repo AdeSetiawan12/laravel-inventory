@@ -14,16 +14,18 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-25 m-auto">
-        <form>
+        <form method="post" action="{{ route('kirim-data-login') }}">
+            @csrf
             <img class="mb-4" src="{{ asset('image/bootstrap-logo.svg') }}" alt="" width="72" height="57">
+            <br>{{ $errors->first('email') }}
             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
             <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Alamat Email</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
 
