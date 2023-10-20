@@ -1,4 +1,6 @@
-<h1>Halaman Dashboard</h1>
-<a href="{{ route('logout') }}">
-    <button>Keluar</button>
-</a>
+@extends('template/index')
+
+@section('konten')
+<h1>Halaman Dashboard</h1>    
+@endsection
+

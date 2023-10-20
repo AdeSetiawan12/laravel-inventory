@@ -9,7 +9,7 @@
     <meta name="author" content="Ade Setiawan">
     <title>Laravel Inventory By Ade S</title>
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.2/css/bootstrap.min.css') }}" >
-    <link rel="icon" href="{{ asset('image/bootstrap-logo.svg') }}" alt="" width="72" height="57">
+    <link rel="icon" href="{{ asset('image/Laravel-logo.svg') }}" alt="" width="72" height="57">
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
