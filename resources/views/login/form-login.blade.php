@@ -16,7 +16,7 @@
     <main class="form-signin w-25 m-auto">
         <form method="post" action="{{ route('kirim-data-login') }}">
             @csrf
-            <img class="mb-4" src="{{ asset('image/bootstrap-logo.svg') }}" alt="" width="72" height="57">
+            <img class="mb-4" src="{{ asset('image/Laravel-Logo.png') }}" alt="" width="72" height="57">
             <br>{{ $errors->first('email') }}
             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
             <div class="form-floating">
