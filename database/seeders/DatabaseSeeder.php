@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(master_barangTableSeeder::class);
+        $this->call(stok_barangTableSeeder::class);
     }
 }
