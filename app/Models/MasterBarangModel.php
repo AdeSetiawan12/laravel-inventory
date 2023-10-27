@@ -11,4 +11,5 @@ class MasterBarangModel extends Model
     use HasFactory;
     protected $table = 'master_barang';
     public $timestamps = false;
+    protected $guarded = ['id'];
 }
