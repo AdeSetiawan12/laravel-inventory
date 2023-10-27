@@ -13,7 +13,7 @@
     
   </ul>
   
-  <div class="tab-content pt-3">
+  <div class="tab-content p-3">
       @yield('master-konten')
   </div>
 @endsection
