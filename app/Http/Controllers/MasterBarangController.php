@@ -47,13 +47,13 @@ class MasterBarangController extends Controller
         if ($insert) {
             return redirect()
             ->route('master-barang')
-            ->with('succes', 'Berhasil menambahkan barang baru!');
+            ->with('success', 'Berhasil menambahkan barang baru!');
         }
         
         } catch(\Throwable $th) {
             return redirect()
             ->route('master-barang-tambah')
-            ->with('error', $th->getMessage());
+            ->with('danger', $th->getMessage());
         }
     }
 
