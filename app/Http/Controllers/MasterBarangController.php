@@ -29,10 +29,11 @@ class MasterBarangController extends Controller
 
     public function store(Request $request)
     {
+        //aturan untuk inputan master barang
         $aturan =[
             'html_kode' => 'required|min:3|max:7|alpha_dash',
             'html_nama' => 'required|min:10|max:25',
-            'html_deskripsi' => 'max:255',
+            'html_deskripsi' => 'required|max:255',
         ];
         //membuat pesan bhs indonesia
         $pesan_indo = [
@@ -50,7 +51,7 @@ class MasterBarangController extends Controller
                 // jika inputan user sesuai
                 //simpan ke database
                 $insert = MasterBarangModel::create([
-                    'kode'              => $request->html_kode,
+                    'kode'              => strtoupper($request->html_kode),
                     'nama'              => $request->html_nama,
                     'deskripsi'         => $request->html_deskripsi,
                     'id_kategori'       => null,
