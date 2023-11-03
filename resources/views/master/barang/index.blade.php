@@ -28,6 +28,10 @@
                 <td>{{ $b->nama }}</td>
                 <td>{{ $b->deskripsi }}</td>
                 <td>
+                    <a href="{{ route('master-barang-detail', ['id' => $b->id]) }}" 
+                      class="btn btn-sm btn-success rounded-circle"> 
+                      <i class="fa fa-solid fa-eye"></i> 
+                    </a>
                     <a href="{{ route('master-barang-hapus', ['id' => $b->id]) }}" 
                       class="btn btn-danger rounded-circle" 
                       onclick="return confirm('Apakah anda yakin ingin hapus {{ $b->kode }} ?')">
