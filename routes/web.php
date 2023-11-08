@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterController;
 use App\Http\Controllers\MasterBarangController;
 use App\Http\Controllers\MasterGudangController;
 use App\Http\Controllers\MasterKategoriController;
+use App\Http\Controllers\StokController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,17 +58,17 @@ Route::get('/master/barang/hapus{id}', [MasterBarangController::class, 'destroy'
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-    Route::get('/master/barang/detail{id}', [MasterBarangController::class, 'show'])
+Route::get('/master/barang/detail{id}', [MasterBarangController::class, 'show'])
     ->name('master-barang-detail')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-    Route::get('/master/barang/edit{id}', [MasterBarangController::class, 'edit'])
+Route::get('/master/barang/edit{id}', [MasterBarangController::class, 'edit'])
     ->name('master-barang-edit')
     ->where('id', '[0-9]+')
     ->middleware('auth');
 
-    Route::post('/master/barang/update{id}', [MasterBarangController::class, 'update'])
+Route::post('/master/barang/update{id}', [MasterBarangController::class, 'update'])
     ->name('master-barang-update')
     ->where('id', '[0-9]+')
     ->middleware('auth');
@@ -79,4 +80,13 @@ Route::get('/master/kategori', [MasterKategoriController::class, 'index'])
 Route::get('/master/gudang', [MasterGudangController::class, 'index'])
     ->name('master-gudang')
     ->middleware('auth');
+
+Route::get('/stok-masuk', [StokController::class, 'form_stok_masuk'])
+    ->name('stok-masuk')
+    ->middleware('auth');
+
+Route::get('/stok-keluar', [StokController::class, 'form_stok_keluar'])
+    ->name('stok-keluar')
+    ->middleware('auth');
+
 
