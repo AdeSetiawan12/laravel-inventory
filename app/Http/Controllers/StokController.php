@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MasterBarangModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Models\MasterBarangModel;
+use App\Models\StokBarangModel;
+
+
+
 
 class StokController extends Controller
 {
@@ -13,8 +19,69 @@ class StokController extends Controller
         return view('stok/form-stok-masuk', compact('barang'));
     }
     
-    // public function form_stok_keluar()
-    // {
-    //     return view('stok/form-stok-keluar');
-    // }
+    function proses_stok_masuk(Request $request)
+    {
+        //buat peraturan validasi form
+        $aturan = [
+            'form_barang' => 'required',
+            'form_jumlah_masuk' => 'required',
+        ];
+        //membuat pesan bhs indonesia
+        $pesan_indo = [
+            'required' => 'Wajib di isi Bos!',
+            'min' => 'Minimal :min Karakter',
+        ];
+        $validator = Validator::make($request->all(), $aturan, $pesan_indo);
+
+        try {
+            // jika inputan user tidak sesuai dengan aturan validasi
+            if ($validator->fails()) {
+                return redirect()
+                ->route('stok-masuk')
+                ->withErrors($validator)->withInput();
+            } else {
+                // jika inputan user sesuai
+                //simpan ke database
+
+                //mengambil data sisa stok terakhir di database
+                //berdasarkan kode barang yang dipilih di form
+                $cek_sisa = StokBarangModel::where('kode', $request->form_barang)
+                    ->orderBy('id', 'DESC')
+                    ->first();
+                $stok_sisa = $cek_sisa['stok_sisa'];
+
+                //jika ada sisa yang ditemukan
+                if (isset($stok_sisa)) {
+                    //stok sisa + stok masuk baru
+                    $isi = $stok_sisa + $request->form_jumlah_masuk;
+                } else {
+                    //jika tidak ada sisa
+                    //stok sisa mengambil dari data jumlah barang yang masuk
+                    $isi = $request->form_jumlah_masuk;
+                }
+            
+                $insert = StokBarangModel::create([
+                    'kode'              => strtoupper($request->form_barang),
+                    'stok_masuk'        => $request->form_jumlah_masuk,
+                    'stok_keluar'       => 0,
+                    'stok_sisa'         => $isi,
+                    'dibuat_kapan'      => date('Y-m-d H:i:s'),
+                    'dibuat_oleh'       => Auth::user()->id,
+                    'diperbarui_kapan'  => null,
+                    'diperbarui_oleh'   => null,
+                ]);
+           //jika proses insert ke db berhasil
+                if ($insert) {
+                    return redirect()
+                    ->route('stok-masuk')
+                    ->with('success', 'Berhasil memasukkan stok!');
+                }
+            }
+        }
+        catch (\Throwable $th) {
+            return redirect()
+            ->route('stok-masuk')
+            ->with('danger', $th->getMessage());
+        }
+    }
 }
