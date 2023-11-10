@@ -48,7 +48,7 @@ class StokController extends Controller
                 $cek_sisa = StokBarangModel::where('kode', $request->form_barang)
                     ->orderBy('id', 'DESC')
                     ->first();
-                $stok_sisa = $cek_sisa['stok_sisa'];
+                $stok_sisa = $cek_sisa['stok_sisa'] ?? 0;
 
                 //jika ada sisa yang ditemukan
                 if (isset($stok_sisa)) {
@@ -83,5 +83,12 @@ class StokController extends Controller
             ->route('stok-masuk')
             ->with('danger', $th->getMessage());
         }
+    }
+
+
+    function form_stok_keluar()
+    {
+        $barang = MasterBarangModel::where('status', 1)->get();
+        return view('stok/form-stok-keluar', compact('barang'));
     }
 }

@@ -17,11 +17,18 @@
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></i></div>
                 Stock Masuk
             </a>
-            {{-- <a class="nav-link {{ (Request::segment(1)== 'stok-keluar') ? 'active' : ''}}" 
+            <a class="nav-link {{ (Request::segment(1)== 'stok-keluar') ? 'active' : ''}}" 
             href="{{ route('stok-keluar')}}">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></i></div>
                 Stock Keluar
-            </a> --}}
+            </a>
+            
+            {{-- <a class="nav-link {{ (Request::segment(1)== 'restore-data') ? 'active' : ''}}" 
+            href="{{ route('restore-data')}}">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-trash-arrow-up"></i></i></div>
+                Restore Data --}}
+            
+            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">

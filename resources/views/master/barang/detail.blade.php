@@ -3,7 +3,7 @@
 <h3>Detail Barang</h3>
 @if (isset($barang[0]))
 @php
-//konversi format tanggal sql menjadi mudah dibaca oleh manusi
+//konversi format tanggal sql menjadi mudah dibaca oleh manusia
 $tanggal_dibuat = new DateTime($barang[0]->dibuat_kapan);
 $dibuat = $tanggal_dibuat->format('D, d M Y');
 
