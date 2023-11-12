@@ -10,9 +10,8 @@
     <li class="nav-item">
       <a class="nav-link {{ (Request::segment(2) == 'gudang') ? 'active' : ''}}" href="{{ route('master-gudang')}}">Gudang</a>
     </li>
-    
-  </ul>
-  
+</ul>
+
   <div class="tab-content p-3">
       @yield('master-konten')
   </div>

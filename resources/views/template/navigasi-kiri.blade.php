@@ -23,11 +23,10 @@
                 Stok Keluar
             </a>
             
-            {{-- <a class="nav-link {{ (Request::segment(1)== 'restore-data') ? 'active' : ''}}" 
-            href="{{ route('restore-data')}}">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-trash-arrow-up"></i></i></div>
+            <a class="nav-link {{(Request::segment(1) == 'History-Delete') ? 'active' : '' }} " href="{{ url('/History-Delete')}}">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-trash"></i></div>
                 Restore Data
-            </a> --}}
+            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">

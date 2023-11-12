@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterController;
 use App\Http\Controllers\MasterBarangController;
 use App\Http\Controllers\MasterGudangController;
 use App\Http\Controllers\MasterKategoriController;
+use App\Http\Controllers\DeleteHistoryController;
 use App\Http\Controllers\StokController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,9 +94,20 @@ Route::get('/stok-keluar', [StokController::class, 'form_stok_keluar'])
     ->name('stok-keluar')
     ->middleware('auth');
 
-    Route::post('/stok-out', [StokController::class, 'proses_stok_keluar'])
+Route::post('/stok-out', [StokController::class, 'proses_stok_keluar'])
     ->name('stok-out')
     ->middleware('auth');
+
+Route::get('/History-Delete',[DeleteHistoryController::class, 'index'])
+    ->name('delete-history')
+    ->middleware('auth');
+    
+Route::get('/update-item/{id}',[DeleteHistoryController::class, 'update'])
+    ->name('update-item')
+    ->where('id','[0-9]+')
+    ->middleware('auth');
+
+
 
 
 
