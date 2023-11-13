@@ -78,6 +78,35 @@ Route::get('/master/kategori', [MasterKategoriController::class, 'index'])
     ->name('master-kategori')
     ->middleware('auth');
 
+Route::get('/master/kategori/tambah', [MasterKategoriController::class, 'create'])
+    ->name('master-kategori-tambah')
+    ->middleware('auth');
+
+Route::post('/master/kategori/simpan', [MasterKategoriController::class, 'store'])
+    ->name('master-kategori-simpan')
+    ->middleware('auth');
+
+Route::get('/master/kategori/hapus{id}', [MasterKategoriController::class, 'destroy'])
+    ->name('master-kategori-hapus')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::get('/master/kategori/detail{id}', [MasterKategoriController::class, 'show'])
+    ->name('master-kategori-detail')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::get('/master/kategori/edit{id}', [MasterKategoriController::class, 'edit'])
+    ->name('master-kategori-edit')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+Route::post('/master/kategori/update{id}', [MasterKategoriController::class, 'update'])
+    ->name('master-kategori-update')
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
+
+
 Route::get('/master/gudang', [MasterGudangController::class, 'index'])
     ->name('master-gudang')
     ->middleware('auth');

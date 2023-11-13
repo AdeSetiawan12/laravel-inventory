@@ -13,7 +13,7 @@
     </div>
     <div class="mb-3">
         <label for="html_nama" class="form-label">Nama</label>
-        <input type="text" class="form-control w-50" id="html_nama" name="html_nama" value="{{ old('html_nama', $barang[0]->nama)}}" placeholder="Nama Barang">
+        <input type="text" class="form-control w-50" id="html_nama" name="html_nama" value="{{ old('html_nama', $barang[0]->nama)}}" placeholder="Nama">
         @if ($errors->has('html_nama'))
             <div class="badge text-bg-danger">{{ $errors->first('html_nama') }}</div>
         @endif

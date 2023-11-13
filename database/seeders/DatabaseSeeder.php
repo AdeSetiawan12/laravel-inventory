@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(master_barangTableSeeder::class);
         $this->call(stok_barangTableSeeder::class);
+        $this->call(master_kategoriTableSeeder::class);
     }
 }

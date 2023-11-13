@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('master_barang', function (Blueprint $table) {
+        Schema::create('master_kategori', function (Blueprint $table) {
             $table->id();
             $table->string('kode', 7);
-            $table->string('nama', 25);
+            $table->string('nama_kategori', 25);
             $table->string('deskripsi');
-            $table->integer('id_kategori')->nullable();
-            $table->integer('id_gudang')->nullable();
-            $table->integer('status');
-            $table->dateTime('dibuat_kapan')->nullable();
+            $table->string('status')->nullable();
+            $table->dateTime('dibuat_kapan');
             $table->integer('dibuat_oleh')->nullable();
             $table->dateTime('diperbarui_kapan')->nullable();
-            $table->integer('diperbarui_oleh')->nullable();
+            $table->dateTime('diperbarui_oleh')->nullable();
+           
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('master_barang');
+        Schema::dropIfExists('master_kategori');
     }
 };
