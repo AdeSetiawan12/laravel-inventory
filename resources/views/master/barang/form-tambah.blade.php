@@ -1,6 +1,6 @@
 @extends('master/all')
 @section('master-konten')
-
+<h4 class="text-center">Tambah Data Master Barang</h4>
 <form action="{{ route('master-barang-simpan')}}" method="post">
     @csrf 
     <div class="mb-3">

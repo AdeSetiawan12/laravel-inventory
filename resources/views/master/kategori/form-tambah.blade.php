@@ -1,6 +1,6 @@
 @extends('master/all')
 @section('master-konten')
-
+<h4 class="text-center">Tambah Data Master Kategori</h4>
 <form action="{{ route('master-kategori-simpan')}}" method="post">
     @csrf 
     <div class="mb-3">

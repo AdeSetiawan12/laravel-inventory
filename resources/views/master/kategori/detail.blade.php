@@ -12,15 +12,15 @@ $diperbarui = $tanggal_diperbarui->format('D, d M Y');
 
 @endphp
 <div class="card w-50 shadow">
-<div class="card-body">
-  <h5 class="card-title">{{$kategori[0]->kode}}</h5>
-  <h6 class="card-title">{{$kategori[0]->nama_kategori}}</h6>
-  
-  <p class="card-text">{{$kategori[0]->deskripsi}}</p>
-  <span class="card-text">Dibuat: {{$dibuat}} | {{$kategori[0]->dibuat_nama}}</span><br>  
-  <span class="card-text">Terakhir Diperbarui: {{$diperbarui}} | {{$kategori[0]->diperbarui_nama}}</span>  
-  {{-- <a href="#" class="btn btn-primary">Print</a> --}}
-</div>
+  <div class="card-body">
+    <h5 class="card-title">{{$kategori[0]->kode}}</h5>
+    <h6 class="card-title">{{$kategori[0]->nama_kategori}}</h6>
+    
+    <p class="card-text">{{$kategori[0]->deskripsi}}</p>
+    <span class="card-text">Dibuat: {{$dibuat}} | {{$kategori[0]->dibuat_nama}}</span><br>  
+    <span class="card-text">Terakhir Diperbarui: {{$diperbarui}} | {{$kategori[0]->diperbarui_nama}}</span>  
+
+  </div>
 </div>
     
 @else

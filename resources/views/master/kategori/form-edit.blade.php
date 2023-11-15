@@ -3,7 +3,7 @@
 
 <form action="{{ route('master-kategori-update', $kategori[0]->id)}}" method="post">
     @csrf 
-    <h5>Edit Master Kategori</h5>
+    <h3 class="text-center">Edit Master Kategori</h3>
     <div class="mb-3">
         <label for="html_kode" class="form-label">Kode</label>
         <input type="text" class="form-control w-50" id="html_kode" name="html_kode" value="{{ old('html_kode', $kategori[0]->kode)}}" placeholder="Kode kategori" disabled>

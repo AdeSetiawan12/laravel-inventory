@@ -1,8 +1,9 @@
 @extends('master/all')
 @section('master-konten')
 <div class="row">
+  <h3 class="text-center">Master Data Kategori</h3>
   <div class="col-12 text-end">
-    <a href="{{ route('master-kategori-tambah')}}" class="btn btn-primary rounded-circle">
+      <a href="{{ route('master-kategori-tambah')}}" class="btn btn-primary rounded-circle">
       <i class="fa fa-solid fa-plus"></i>Tambah Data</a>
   </div>
 </div>
