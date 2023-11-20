@@ -7,7 +7,7 @@
 $tanggal_dibuat = new DateTime($barang[0]->dibuat_kapan);
 $dibuat = $tanggal_dibuat->format('D, d M Y');
 
-$tanggal_diperbarui = new DateTime($barang[0]->diperbarui_oleh);
+$tanggal_diperbarui = new DateTime($barang[0]->diperbarui_kapan);
 $diperbarui = $tanggal_diperbarui->format('D, d M Y');
 
 @endphp
